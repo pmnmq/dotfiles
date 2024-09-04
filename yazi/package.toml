@@ -1,0 +1,13 @@
+[plugin]
+deps = [
+  { use = "Reledia/glow", rev = "4e016fa" },
+  { use = "yazi-rs/plugins:jump-to-char", rev = "b659791" },
+  { use = "yazi-rs/plugins:chmod", rev = "b659791" },
+  { use = "KKV9/compress", rev = "60b24af" },
+  { use = "Lil-Dank/lazygit", rev = "c82794f" },
+  { use = "llanosrocas/githead", rev = "bf150f3" },
+  { use = "yazi-rs/plugins:max-preview", rev = "2b001d2" },
+]
+
+[flavor]
+deps = []

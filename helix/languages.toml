@@ -1,0 +1,35 @@
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".venv", "venv"]
+file-types = ["py","pyi","py3","pyw",".pythonstartup",".pythonrc"]
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[language.formatter]
+command = "ruff"
+args = [ "format", "." ]
+
+[language-server.pyright.config]
+reportMissingTypeStubs = false
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+autoImportCompletions = true
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+
+[language-server.omnisharp]
+command = "dotnet"
+args = [ "~/.local/share/omnisharp/Omnisharp.dll", "--languageserver" ]
+
+[[languages]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }

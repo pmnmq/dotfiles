@@ -1,0 +1,58 @@
+theme = "tokyonight_storm"
+# theme = "onedark"
+
+[editor]
+cursorline = true
+mouse = true
+line-number = "relative"
+bufferline = "always"
+idle-timeout = 50
+true-color = true
+auto-save = false
+
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = ["read-only-indicator", "selections",]
+right = ["diagnostics", "version-control",  "position", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+tab = "→"
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[keys.normal]
+C-s = ":w"
+g = { a = "code_action" }
+K = "scroll_down"
+J = "scroll_up"
+C-q = ":q"
+H = "goto_line_start"
+L = "goto_line_end"
+
+[keys.insert]
+j = { k = "normal_mode" }
+
