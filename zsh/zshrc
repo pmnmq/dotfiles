@@ -21,9 +21,7 @@ if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 	source $HOME/.config/zsh/fzf.zsh
 fi
 
-plugins=(git extract 1password)
 
-source $HOME/.cargo/env
 source $HOME/.config/zsh/env.zsh
 source $HOME/.config/zsh/joshuto.zsh
 source $HOME/.config/zsh/yazi.zsh
@@ -32,4 +30,6 @@ source $HOME/.config/zsh/yazi.zsh
 if [[ "$(uname)" == "Darwin" ]]; then
 	eval "$(op completion zsh)"
 fi
+
+plugins=(git extract 1password)
 
