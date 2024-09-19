@@ -16,7 +16,7 @@ if test -d $CARGO_HOME; then
 fi
 
 # Go
-if test -d /usr/local/bin; then
+if test -d /usr/local/go/bin; then
 	export GOROOT=/usr/local/go
 	export PATH=$GOROOT/bin:$PATH
 fi
