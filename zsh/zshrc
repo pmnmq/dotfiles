@@ -7,6 +7,8 @@ if test -x /home/linuxbrew/.linuxbrew/bin/brew; then
 fi
 
 source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/env.zsh
+source $XDG_CONFIG_HOME/zsh/functions.zsh
 
 if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 
@@ -22,9 +24,7 @@ if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 fi
 
 
-source $HOME/.config/zsh/env.zsh
-source $HOME/.config/zsh/joshuto.zsh
-source $HOME/.config/zsh/yazi.zsh
+# source $HOME/.config/zsh/joshuto.zsh
 
 # 1Password
 if [[ "$(uname)" == "Darwin" ]]; then
