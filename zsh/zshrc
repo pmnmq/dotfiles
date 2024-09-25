@@ -13,7 +13,9 @@ if [ -f "/etc/os-release" ]; then
 	fi
 fi
 
-source $HOME/.config/zsh/aliases.zsh
+if [ "$is_nixos" = false ]; then
+	source $HOME/.config/zsh/aliases.zsh
+fi
 source $HOME/.config/zsh/env.zsh
 source $XDG_CONFIG_HOME/zsh/functions.zsh
 
