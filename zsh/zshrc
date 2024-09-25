@@ -6,6 +6,13 @@ if test -x /home/linuxbrew/.linuxbrew/bin/brew; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew)"
 fi
 
+is_nixos=false
+if [ -f "/etc/os-release" ]; then
+	if grep -q 'ID=nixos' /etc/os-release; then
+		is_nixos=true
+	fi
+fi
+
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/env.zsh
 source $XDG_CONFIG_HOME/zsh/functions.zsh
@@ -13,12 +20,16 @@ source $XDG_CONFIG_HOME/zsh/functions.zsh
 if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 
 	export ZSH="$HOME/.oh-my-zsh"
-	ZSH_THEME="nebula"
-	source $ZSH/oh-my-zsh.sh
-	source $HOME/.zi/bin/zi.zsh
-	autoload -Uz _zi
-	(( ${+_comps} )) && _comps[zi]=_zi
-	source $HOME/.config/zsh/plugins.zsh
+	if [ "$is_nixos" = false ]; then
+
+		ZSH_THEME="nebula"
+		source $ZSH/oh-my-zsh.sh
+		source $HOME/.zi/bin/zi.zsh
+		autoload -Uz _zi
+		(( ${+_comps} )) && _comps[zi]=_zi
+		source $HOME/.config/zsh/plugins.zsh
+		plugins=(git extract 1password)
+	fi
 	source $HOME/.config/zsh/vi.zsh
 	source $HOME/.config/zsh/fzf.zsh
 fi
@@ -30,6 +41,4 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
 	eval "$(op completion zsh)"
 fi
-
-plugins=(git extract 1password)
 
