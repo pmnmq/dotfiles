@@ -1,13 +1,4 @@
-if test -x /opt/homebrew/bin/brew; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-if test -x /home/linuxbrew/.linuxbrew/bin/brew; then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew)"
-fi
-
 source $HOME/.config/zsh/env.zsh
-source $XDG_CONFIG_HOME/zsh/functions.zsh
 
 if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 	source $HOME/.config/zsh/vi.zsh
