@@ -4,7 +4,7 @@ bindkey -M vicmd "I" vi-insert-bol
 bindkey -M vicmd "l" vi-forward-char
 bindkey -M vicmd "h" vi-backward-char
 bindkey -M vicmd "L" vi-end-of-line
-bindkey -M vicmd "J" vi-beginning-of-line
+bindkey -M vicmd "H" vi-beginning-of-line
 bindkey -M vicmd "k" up-line-or-history
 bindkey -M vicmd "j" down-line-or-history
 
