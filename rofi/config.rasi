@@ -1,10 +1,10 @@
 configuration{
     modi: "run,drun,window";
     lines: 6;
-    font: "Fira Code Nerd Font 16";
+    font: "Fira Code Nerd Font 12";
     show-icons: true;
     icon-theme: "Oranchelo";
-    terminal: "st";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -24,7 +24,7 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 500px;
+    height: 400px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
@@ -76,7 +76,7 @@ element {
 }
 
 element-icon {
-    size: 25px;
+    size: 20px;
 }
 
 element selected {
@@ -92,7 +92,7 @@ button {
     padding: 10px;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5; 
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
