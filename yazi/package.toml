@@ -7,6 +7,7 @@ deps = [
   { use = "Lil-Dank/lazygit", rev = "c82794f" },
   { use = "llanosrocas/githead", rev = "bf150f3" },
   { use = "yazi-rs/plugins:max-preview", rev = "2b001d2" },
+  { use = "yazi-rs/plugins:git", rev = "932b931" }
 ]
 
 [flavor]

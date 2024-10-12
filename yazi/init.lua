@@ -33,6 +33,12 @@ Header:children_add(function()
 	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
 end, 500, Header.LEFT)
 
-require("git"):setup({
-	show_branch = true,
-})
+
+THEME.git = THEME.git or {}
+THEME.git.modified_sign = "M"
+THEME.git.deleted_sign = "D"
+THEME.git.added_sign = "A"
+THEME.git.updated_sign = "U"
+require("git"):setup()
+
+require("githead"):setup()
