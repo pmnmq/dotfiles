@@ -2,11 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./common.nix
   ];
 
   # Bootloader.
@@ -17,6 +18,10 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  environment.sessionVariables = {
+    BUILD_HOSTNAME = "${config.networking.hostName}";
+  };
+
   # Configure network proxy if necessary
   networking.proxy.default = "http://192.168.31.11:7890";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -24,9 +29,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.nameservers = [ "8.8.8.8" "114.114.114.114" ];
-
-  # Set your time zone.
-  time.timeZone = "Asia/Shanghai";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -62,38 +64,19 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.chun = {
-    isNormalUser = true;
-    description = "chun";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [ ];
-  };
+  users.users.chun.shell = pkgs.zsh;
 
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    curl
-    git
-    gcc
-    gnumake
-    kitty
-    nurl
-    psmisc
-    nix-du
-    networkmanagerapplet
-    xclip
-    openssl
-    blueman
+  environment.systemPackages = lib.mkMerge [
+    config.environment.systemPackages
+    (with pkgs; [ kitty psmisc networkmanagerapplet xclip openssl blueman ])
   ];
 
   fonts.packages = with pkgs; [
@@ -108,8 +91,6 @@
     wqy_microhei
   ];
 
-  environment.variables.EDITOR = "nvim";
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -121,17 +102,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
-  nix.settings.substituters =
-    [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 }

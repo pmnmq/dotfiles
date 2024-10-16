@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
-let currentDir = "${config.home.homeDirectory}/configFile";
+{ config, pkgs, lib, ... }:
+let
+  currentDir = "${config.home.homeDirectory}/configFile";
+  hostname = builtins.getEnv "BUILD_HOSTNAME";
 in {
   home.username = "chun";
   home.homeDirectory = "/home/chun";
@@ -23,74 +25,79 @@ in {
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/waybar";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
-  home.packages = with pkgs; [
-    # show sys info in term
-    neofetch
-    nitch
 
-    # browser
-    google-chrome
-    firefox
+  home.packages = lib.mkMerge [
+    (lib.mkIf (hostname == "nixos") (with pkgs; [
+      # browser
+      google-chrome
+      firefox
 
-    clash-meta
-    clash-verge-rev
-    qq
-    telegram-desktop
-    discord
+      clash-verge-rev
+      qq
+      telegram-desktop
+      discord
 
-    # cli
-    gh
-    eza
-    fzf
-    btop
+      # set wayland wallpaper
+      swww
 
-    # archives
-    zip
-    xz
-    unzip
-    gzip
-    # utils
-    ripgrep
-    jq
-    fd
-    which
-    gnutar
-    gawk
-    gnupg
-    glow
-    lsof
-    ldns
-    bat
+      obs-studio
+      localsend
 
-    # set wayland wallpaper
-    swww
+      # screen shot
+      watershot
+      grim
 
-    obs-studio
-    localsend
+      slurp
+      # lock
+      swaylock
+      # logout
+      wlogout
+      rofi-wayland
+      mako
+      waybar
 
-    # screen shot
-    watershot
-    grim
+      bibata-cursors
+    ]))
+    (with pkgs; [
+      neofetch
+      nitch
+      clash-meta
 
-    slurp
-    # lock
-    swaylock
-    # logout
-    wlogout
-    rofi-wayland
-    mako
-    waybar
+      # cli
+      gh
+      eza
+      fzf
+      btop
 
-    cargo
-    rustc
-    nodejs
-    nodePackages.pnpm
-    python3
-    python3Packages.pip
-    go
-    yazi
-    lazygit
-    bibata-cursors
+      # archives
+      zip
+      xz
+      unzip
+      gzip
+      # utils
+      ripgrep
+      jq
+      fd
+      which
+      gnutar
+      gawk
+      gnupg
+      glow
+      lsof
+      ldns
+      bat
+
+      cargo
+      rustc
+      nodejs
+      nodePackages.pnpm
+      python3
+      python3Packages.pip
+      go
+      yazi
+      lazygit
+      bash
+    ])
   ];
 
   # git 相关配置
