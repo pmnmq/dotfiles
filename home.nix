@@ -101,7 +101,7 @@ in {
   # git 相关配置
   programs.git = {
     enable = true;
-    userName = "chun";
+    userName = "pmnmq";
     userEmail = "pujichun@outlook.com";
   };
   # Let Home Manager install and manage itself.
