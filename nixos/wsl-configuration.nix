@@ -15,9 +15,6 @@
   users.users.chun.shell = pkgs.zsh;
 
   networking.hostName = "wsl"; # Define your hostname.
-  environment.sessionVariables = {
-    BUILD_HOSTNAME = "${config.networking.hostName}";
-  };
 
   programs.zsh.enable = true;
 }

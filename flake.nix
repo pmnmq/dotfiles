@@ -29,6 +29,7 @@
               home-manager.useUserPackages = true;
               # home-manager.extraSpecialArgs = inputs;
               home-manager.users.chun = import ./home.nix;
+              home-manager.extraSpecialArgs = { hostname = "nixos"; };
             }
             {
               services.xremap = {
@@ -61,6 +62,7 @@
               home-manager.useUserPackages = true;
               # home-manager.extraSpecialArgs = inputs;
               home-manager.users.chun = import ./home.nix;
+              home-manager.extraSpecialArgs = { hostname = "wsl"; };
             }
           ];
         };

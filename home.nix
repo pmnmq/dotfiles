@@ -1,7 +1,5 @@
-{ config, pkgs, lib, ... }:
-let
-  currentDir = "${config.home.homeDirectory}/configFile";
-  hostname = builtins.getEnv "BUILD_HOSTNAME";
+{ config, pkgs, lib, hostname, ... }:
+let currentDir = "${config.home.homeDirectory}/configFile";
 in {
   home.username = "chun";
   home.homeDirectory = "/home/chun";
@@ -103,7 +101,7 @@ in {
   # git 相关配置
   programs.git = {
     enable = true;
-    userName = "Chun";
+    userName = "chun";
     userEmail = "pujichun@outlook.com";
   };
   # Let Home Manager install and manage itself.

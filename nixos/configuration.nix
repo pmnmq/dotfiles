@@ -3,8 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, ... }:
-
-{
+let
+  commonPackages = (import ./common.nix {
+    inherit config pkgs lib;
+  }).environment.systemPackages;
+in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./common.nix
@@ -17,10 +20,6 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  environment.sessionVariables = {
-    BUILD_HOSTNAME = "${config.networking.hostName}";
-  };
 
   # Configure network proxy if necessary
   networking.proxy.default = "http://192.168.31.11:7890";
@@ -74,10 +73,32 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = lib.mkMerge [
-    config.environment.systemPackages
-    (with pkgs; [ kitty psmisc networkmanagerapplet xclip openssl blueman ])
-  ];
+  # environment.systemPackages = lib.mkMerge [
+  #   config.environment.systemPackages
+  #   (with pkgs; [ kitty psmisc networkmanagerapplet xclip openssl blueman ])
+  # ];
+  # environment.systemPackages = config.environment.systemPackages ++ [
+  #   pkgs.kitty
+  #   pkgs.psmisc
+  #   pkgs.networkmanagerapplet
+  #   pkgs.xclip
+  #   pkgs.openssl
+  #   pkgs.blueman
+  # ];
+  # environment.systemPackages = config.environment.systemPackages
+  #   ++ (with pkgs; [ kitty psmisc networkmanagerapplet xclip openssl blueman ]);
+  # environment.systemPackages = lib.debug.traceVal config.environment.systemPackages;
+  environment.systemPackages = (commonPackages ++ [
+    pkgs.kitty
+    pkgs.psmisc
+    pkgs.networkmanagerapplet
+    pkgs.xclip
+    pkgs.openssl
+    pkgs.blueman
+  ]);
+  # environment.systemPackages = with pkgs;
+  #   [ kitty psmisc networkmanagerapplet xclip openssl blueman ]
+  #   ++ config.environment.systemPackages;
 
   fonts.packages = with pkgs; [
     noto-fonts
