@@ -55,6 +55,15 @@ git clone https://github.com/pmnmq/nvim
 sudo nixos-rebuild switch --flake ".#nixos"
 ```
 
+### WSL
+
+```SHELL
+git clone https://github.com/pmnmq/dotfiles
+cd dotfiles
+git clone https://github.com/pmnmq/nvim
+sudo nixos-rebuild switch --flake ".#wsl"
+```
+
 ### MacOS
 
 ```shell
