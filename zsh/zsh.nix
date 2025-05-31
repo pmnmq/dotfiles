@@ -13,7 +13,7 @@ in {
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
-    initExtra = ''
+    initContent = ''
       if [ -f ${config.xdg.configHome}/zsh/zshrc ]; then
         source ${config.xdg.configHome}/zsh/zshrc
       fi

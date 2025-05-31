@@ -3,7 +3,7 @@ let currentDir = "${config.home.homeDirectory}/configFile";
 in {
   home.username = "chun";
   home.homeDirectory = "/home/chun";
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
   home.enableNixpkgsReleaseCheck = false;
   xdg.enable = true;
   xdg.configFile = {

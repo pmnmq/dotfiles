@@ -22,7 +22,7 @@ in {
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  networking.proxy.default = "http://192.168.31.11:7890";
+  networking.proxy.default = "http://192.168.31.182:7890";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
@@ -102,10 +102,13 @@ in {
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
-    nerdfonts
+    nerd-fonts.fira-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
     font-awesome
     unifont
     wqy_zenhei
