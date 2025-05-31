@@ -1,27 +1,38 @@
+export ZSHRC_FLAG_OS="$(uname)"
+export ZSHRC_FLAG_IS_NIXOS=false
+export ZSHRC_FLAG_LOAD_ALL=false
+
 if test -x /opt/homebrew/bin/brew; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
+	export HOMEBREW_BIN_PATH=/opt/homebrew/bin
 fi
 
 if test -x /home/linuxbrew/.linuxbrew/bin/brew; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew)"
+	export HOMEBREW_BIN_PATH=/home/linuxbrew/.linuxbrew/bin
 fi
 
 is_nixos=false
 if [ -f "/etc/os-release" ]; then
 	if grep -q 'ID=nixos' /etc/os-release; then
-		is_nixos=true
+		ZSHRC_FLAG_IS_NIXOS=true
 	fi
+fi
+
+if [[ "$TERM_PROGRAM" != "Apple_Terminal" &&
+	 "$TERMINAL_EMULATOR" != JetBrains-* &&
+	 "$TERM_PROGRAM" != "vscode" &&
+	 "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+	ZSHRC_FLAG_LOAD_ALL=true
 fi
 
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/env.zsh
 source $XDG_CONFIG_HOME/zsh/functions.zsh
 
-if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
-
+function plugin_init() {
 	export ZSH="$HOME/.oh-my-zsh"
-	if [ "$is_nixos" = false ]; then
-
+	if [[ "$ZSHRC_FLAG_IS_NIXOS" = false ]]; then
 		ZSH_THEME="nebula"
 		source $ZSH/oh-my-zsh.sh
 		source $HOME/.zi/bin/zi.zsh
@@ -32,13 +43,18 @@ if [ "$TERM_PROGRAM" != "WarpTerminal" ]; then
 	fi
 	source $HOME/.config/zsh/vi.zsh
 	source $HOME/.config/zsh/fzf.zsh
+
+	if [[ $ZSHRC_FLAG_OS == "Darwin" ]]; then
+		eval "$(op completion zsh)"
+	fi
+
+}
+
+if [[ $ZSHRC_FLAG_LOAD_ALL = true ]]; then
+	plugin_init
 fi
 
-
-# source $HOME/.config/zsh/joshuto.zsh
-
-# 1Password
-if [[ "$(uname)" == "Darwin" ]]; then
-	eval "$(op completion zsh)"
+if [[ -x "$HOMEBREW_BIN_PATH/zoxide" ]] then
+	eval "$(zoxide init zsh)"
 fi
 

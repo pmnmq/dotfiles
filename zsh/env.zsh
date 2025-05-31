@@ -1,5 +1,3 @@
-OS="$(uname)"
-
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
@@ -12,7 +10,7 @@ export PATH=$XDG_BIN_HOME:$PATH
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 if test -d $CARGO_HOME; then
-	export PATH=$CARGO_HOME:$PATH
+	export PATH=$CARGO_HOME/bin:$PATH
 fi
 
 # Go
@@ -38,6 +36,7 @@ fi
 export PNPM_HOME=$XDG_DATA_HOME/pnpm
 if test -d $PNPM_HOME; then
 	export PATH=$PNPM_HOME/bin:$PATH
+	export PATH=$PNPM_HOME:$PATH
 fi
 
 export YARN_CACHE_FOLDER=$XDG_CACHE_HOME/yarn
@@ -60,7 +59,7 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 # jdk
 if test -d "/usr/local/jdk17"; then
 	jdk_path="/usr/local/jdk17/Contents/Home"
-	if test $OS = "Linux"; then
+	if test $ZSHRC_FLAG_OS = "Linux"; then
 		jdk_path="/usr/local/jdk17"
 	fi
 	export JAVA_HOME=$jdk_path
@@ -73,3 +72,5 @@ if test -d "/usr/local/gradle"; then
 	export PATH=$GRADLE_HOME/bin:$PATH
 fi
 export GRADLE_USER_HOME=$XDG_CACHE_HOME/gradle
+
+export PATH="/Users/pujic/.local/share/solana/install/active_release/bin:$PATH"

@@ -1,5 +1,5 @@
 alias c="clear"
-alias s="neofetch"
+alias s="fastfetch"
 # alias cs="cowsay"
 # alias fl="figlet"
 alias lg="lazygit"
@@ -10,3 +10,5 @@ alias jn="jupyter notebook"
 [ "$(uname)" = "Darwin" ] && alias git='LANG=en_US git'
 # alias _op='op'
 alias sdv="source ./.venv/bin/activate"
+
+[ "$ZSHRC_FLAG_LOAD_ALL" = false ] && alias nvim='nvim --noplugin'
