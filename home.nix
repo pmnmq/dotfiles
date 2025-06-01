@@ -21,6 +21,8 @@ in {
     "zsh".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/zsh";
     "waybar".source =
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/waybar";
+    "fastfetch".source =
+      config.lib.file.mkOutOfStoreSymlink "${currentDir}/fastfetch";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
 
@@ -57,7 +59,7 @@ in {
       bibata-cursors
     ]))
     (with pkgs; [
-      neofetch
+      fastfetch
       nitch
       clash-meta
 
