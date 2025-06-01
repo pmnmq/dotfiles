@@ -23,6 +23,8 @@ in {
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/waybar";
     "fastfetch".source =
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/fastfetch";
+    "screenshot.sh".source =
+      config.lib.file.mkOutOfStoreSymlink "${currentDir}/screenshot.sh";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
 
