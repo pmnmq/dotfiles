@@ -25,6 +25,8 @@ in {
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/fastfetch";
     "screenshot.sh".source =
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/screenshot.sh";
+    "wezterm".source =
+      config.lib.file.mkOutOfStoreSymlink "${currentDir}/wezterm";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
 
@@ -59,6 +61,7 @@ in {
       waybar
 
       bibata-cursors
+      wezterm
     ]))
     (with pkgs; [
       fastfetch
@@ -99,6 +102,7 @@ in {
       yazi
       lazygit
       bash
+      pgcli
     ])
   ];
 
