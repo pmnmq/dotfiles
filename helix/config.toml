@@ -1,4 +1,4 @@
-theme = "tokyonight_storm"
+theme = "base16-classic-dark"
 # theme = "onedark"
 
 [editor]
@@ -23,8 +23,14 @@ select = "underline"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
-center = ["read-only-indicator", "selections",]
-right = ["diagnostics", "version-control",  "position", "file-encoding", "file-type"]
+center = ["read-only-indicator", "selections"]
+right = [
+	"diagnostics",
+	"version-control",
+	"position",
+	"file-encoding",
+	"file-type",
+]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -55,4 +61,3 @@ L = "goto_line_end"
 
 [keys.insert]
 j = { k = "normal_mode" }
-

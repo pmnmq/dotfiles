@@ -27,6 +27,9 @@ in {
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/screenshot.sh";
     "wezterm".source =
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/wezterm";
+    "helix".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/helix";
+    "alacritty".source =
+      config.lib.file.mkOutOfStoreSymlink "${currentDir}/alacritty";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
 
@@ -62,6 +65,7 @@ in {
 
       bibata-cursors
       wezterm
+      alacritty
     ]))
     (with pkgs; [
       fastfetch
@@ -103,6 +107,7 @@ in {
       lazygit
       bash
       pgcli
+      helix
     ])
   ];
 
