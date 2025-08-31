@@ -41,7 +41,7 @@ function plugin_init() {
 		source $HOME/.config/zsh/plugins.zsh
 		plugins=(git extract 1password)
 	fi
-	source $HOME/.config/zsh/vi.zsh
+	# source $HOME/.config/zsh/vi.zsh
 	source $HOME/.config/zsh/fzf.zsh
 
 	if [[ $ZSHRC_FLAG_OS == "Darwin" ]]; then
