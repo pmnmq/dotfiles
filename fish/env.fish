@@ -5,8 +5,8 @@ set -xg XDG_STATE_HOME $HOME/.local/state
 set -xg XDG_BIN_HOME $HOME/.local/bin
 
 if test -d /usr/local/go
-	set -xg GOROOT /usr/local/go
-	fish_add_path $GOROOT/bin
+    set -xg GOROOT /usr/local/go
+    fish_add_path $GOROOT/bin
 end
 set -xg GOPATH $XDG_DATA_HOME/go
 set -xg GOBIN $GOPATH/bin
@@ -30,11 +30,16 @@ fish_add_path $PNPM_HOME/bin
 fish_add_path $CARGO_HOME/bin
 
 if test -d /usr/local/dotnet
-	fish_add_path /usr/local/dotnet
+    fish_add_path /usr/local/dotnet
 end
 
 if test -d $XDG_DATA_HOME/npm
-	fish_add_path $XDG_DATA_HOME/npm/bin
+    fish_add_path $XDG_DATA_HOME/npm/bin
 end
 
-
+# fzf
+set -gx FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS \
+    --color=fg:#cbccc6,bg:#1f2430,hl:#707a8c \
+    --color=fg+:#707a8c,bg+:#191e2a,hl+:#ffcc66 \
+    --color=info:#73d0ff,prompt:#707a8c,pointer:#cbccc6 \
+    --color=marker:#73d0ff,spinner:#73d0ff,header:#d4bfff
