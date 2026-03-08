@@ -1,9 +1,9 @@
-{ config, pkgs, lib, hostname, ... }:
+{ config, pkgs, lib, hostname, inputs, ... }:
 let currentDir = "${config.home.homeDirectory}/configFile";
 in {
   home.username = "chun";
   home.homeDirectory = "/home/chun";
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
   home.enableNixpkgsReleaseCheck = false;
   xdg.enable = true;
   xdg.configFile = {
@@ -51,7 +51,7 @@ in {
       localsend
 
       # screen shot
-      watershot
+      (inputs.watershot.packages.${pkgs.system}.default)
       grim
 
       slurp
@@ -59,13 +59,15 @@ in {
       swaylock
       # logout
       wlogout
-      rofi-wayland
+      rofi
       mako
       waybar
 
       bibata-cursors
       wezterm
       alacritty
+      hyprpaper
+      hyprlock
     ]))
     (with pkgs; [
       fastfetch
@@ -112,12 +114,12 @@ in {
   ];
 
   # git 相关配置
-  programs.git = {
-    enable = true;
-    userName = "pmnmq";
-    userEmail = "pujichun@outlook.com";
-  };
+
+  programs.git.enable = true;
+  programs.git.settings.user.name = "pmnmq";
+  programs.git.settings.user.email = "pujichun@outlook.com";
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  services.avizo.enable = true;
 
 }
