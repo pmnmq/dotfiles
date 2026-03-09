@@ -58,3 +58,6 @@ if [[ -x "$HOMEBREW_BIN_PATH/zoxide" ]] then
 	eval "$(zoxide init zsh)"
 fi
 
+
+# opencode
+export PATH=/Users/pujic/.opencode/bin:$PATH

@@ -1,42 +1,42 @@
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "2da96e3"
-hash = "f9ee1436e3b853508d87f7d49dce56e6"
+rev = "bd3eaa5"
+hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "3b4ed26"
-hash = "5170cc80898895f83c9267e17c58be00"
+rev = "cb6e8ec"
+hash = "424ada4807b20ccd4fc85d1d7c26d1e4"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+rev = "0e56060"
+hash = "ab2e66065a94cca4886b303518e44bd8"
 
 [[plugin.deps]]
 use = "llanosrocas/githead"
-rev = "c90882f"
-hash = "3c3933ed61aa24d802d6b06d3556484"
+rev = "317d09f"
+hash = "41dc37a724b2afd21da4f1ea6c1182d8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "63f9650"
-hash = "30fc0b37f03a597b92d387268319450f"
+rev = "1962818"
+hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "63f9650"
-hash = "d0ad0c1946b46a30c8489735fe8de41c"
+rev = "1962818"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "63f9650"
-hash = "bf6f074cd41ee33c3360341d168f9733"
+rev = "1962818"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "63f9650"
-hash = "a7ab702e1ef0c097defbc976ed34c186"
+rev = "1962818"
+hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [flavor]
 deps = []

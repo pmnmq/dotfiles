@@ -1,3 +1,11 @@
 [user]
 	name = pmnmq
 	email = pujichun@outlook.com
+[core]
+	quotepath = false
+[gui]
+	encoding = utf-8
+[i18n "commit"]
+	encoding = utf-8
+[i18n]
+	logoutputencoding = utf-8

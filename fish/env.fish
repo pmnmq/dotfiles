@@ -22,16 +22,18 @@ set -xg HOMEBREW_BREW_GIT_REMOTE "https://mirrors.tuna.tsinghua.edu.cn/git/homeb
 set -xg HOMEBREW_CORE_GIT_REMOTE "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 set -xg NUGET_PACKAGES $XDG_CACHE_HOME/NuGetPackages
 set -xg DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
+set -xg DOTNET_ROOT /usr/local/dotnet10
+set -xg OPENCODE_PATH /Users/pujic/.opencode
+
 
 fish_add_path $XDG_BIN_HOME
 fish_add_path $GOPATH
 fish_add_path $GOBIN
 fish_add_path $PNPM_HOME/bin
 fish_add_path $CARGO_HOME/bin
+fish_add_path $DOTNET_ROOT
+fish_add_path $OPENCODE_PATH/bin
 
-if test -d /usr/local/dotnet
-    fish_add_path /usr/local/dotnet
-end
 
 if test -d $XDG_DATA_HOME/npm
     fish_add_path $XDG_DATA_HOME/npm/bin
