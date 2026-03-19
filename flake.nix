@@ -5,13 +5,17 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xremap-flake.url = "github:xremap/nix-flake";
+    watershot = {
+      url = "github:Kirottu/watershot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, watershot, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -29,9 +33,13 @@
               home-manager.useUserPackages = true;
               # home-manager.extraSpecialArgs = inputs;
               home-manager.users.chun = import ./home.nix;
-              home-manager.extraSpecialArgs = { hostname = "nixos"; };
+              home-manager.extraSpecialArgs = {
+                hostname = "nixos";
+                inherit inputs;
+              };
             }
             {
+              services.xremap.enable = true;
               services.xremap = {
                 # enable = true;
                 # serviceMode = "user";
@@ -62,7 +70,10 @@
               home-manager.useUserPackages = true;
               # home-manager.extraSpecialArgs = inputs;
               home-manager.users.chun = import ./home.nix;
-              home-manager.extraSpecialArgs = { hostname = "wsl"; };
+              home-manager.extraSpecialArgs = {
+                hostname = "wsl";
+                inherit inputs;
+              };
             }
           ];
         };

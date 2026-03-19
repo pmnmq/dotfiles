@@ -22,7 +22,8 @@ in {
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
-  networking.proxy.default = "http://192.168.31.182:7890";
+  networking.proxy.default = "http://192.168.31.199:7890";
+  # networking.proxy.default = "";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
@@ -50,7 +51,7 @@ in {
     fcitx5.addons = with pkgs; [
       fcitx5-mozc
       fcitx5-gtk
-      fcitx5-chinese-addons
+      qt6Packages.fcitx5-chinese-addons
       fcitx5-pinyin-zhwiki
     ];
   };
@@ -103,7 +104,7 @@ in {
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     nerd-fonts.fira-mono
     nerd-fonts.fira-code

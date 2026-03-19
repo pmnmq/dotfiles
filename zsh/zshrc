@@ -20,9 +20,9 @@ if [ -f "/etc/os-release" ]; then
 fi
 
 if [[ "$TERM_PROGRAM" != "Apple_Terminal" &&
-	 "$TERMINAL_EMULATOR" != JetBrains-* &&
-	 "$TERM_PROGRAM" != "vscode" &&
-	 "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+	"$TERMINAL_EMULATOR" != JetBrains-* &&
+	"$TERM_PROGRAM" != "vscode" &&
+	"$TERM_PROGRAM" != "WarpTerminal" ]]; then
 	ZSHRC_FLAG_LOAD_ALL=true
 fi
 
@@ -54,10 +54,6 @@ if [[ $ZSHRC_FLAG_LOAD_ALL = true ]]; then
 	plugin_init
 fi
 
-if [[ -x "$HOMEBREW_BIN_PATH/zoxide" ]] then
+if [[ -x "$HOMEBREW_BIN_PATH/zoxide" ]]; then
 	eval "$(zoxide init zsh)"
 fi
-
-
-# opencode
-export PATH=/Users/pujic/.opencode/bin:$PATH
