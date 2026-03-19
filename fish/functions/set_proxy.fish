@@ -6,6 +6,7 @@ function set_proxy
         return 1
     end
     set -xg all_proxy $proxy_url
+    set -xg http_proxy $proxy_url
+    set -xg https_proxy $proxy_url
     echo "Proxy set to $proxy_url"
 end
-
