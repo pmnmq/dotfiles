@@ -20,3 +20,5 @@ yazi/plugins
 solana
 pgcli
 github-copilot
+/mole/mole.log
+/mole/operations.log
