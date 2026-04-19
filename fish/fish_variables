@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/Users/pujic/\x2eopencode/bin\x1e/usr/local/dotnet10\x1e/Users/pujic/\x2elocal/share/npm/bin\x1e/Users/pujic/\x2elocal/share/cargo/bin\x1e/usr/local/dotnet\x1e/Users/pujic/\x2elocal/share/pnpm/bin\x1e/Users/pujic/\x2elocal/share/go/bin\x1e/Users/pujic/\x2elocal/share/go\x1e/Users/pujic/\x2elocal/bin\x1e/usr/local/go/bin
+SETUVAR fish_user_paths:/home/chun/\x2elocal/share/go\x1e/Users/pujic/\x2eopencode/bin\x1e/usr/local/dotnet10\x1e/Users/pujic/\x2elocal/share/npm/bin\x1e/Users/pujic/\x2elocal/share/cargo/bin\x1e/usr/local/dotnet\x1e/Users/pujic/\x2elocal/share/pnpm/bin\x1e/Users/pujic/\x2elocal/share/go/bin\x1e/Users/pujic/\x2elocal/share/go\x1e/Users/pujic/\x2elocal/bin\x1e/usr/local/go/bin

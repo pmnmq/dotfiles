@@ -30,6 +30,8 @@ in {
     "helix".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/helix";
     "alacritty".source =
       config.lib.file.mkOutOfStoreSymlink "${currentDir}/alacritty";
+    "ghostty".source =
+      config.lib.file.mkOutOfStoreSymlink "${currentDir}/ghostty";
   };
   imports = [ (import ./zsh/zsh.nix { inherit config pkgs; }) ];
 
@@ -110,6 +112,8 @@ in {
       bash
       pgcli
       helix
+      ghostty
+      fish
     ])
   ];
 

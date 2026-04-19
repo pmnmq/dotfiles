@@ -12,8 +12,13 @@ set -xg GOPATH $XDG_DATA_HOME/go
 set -xg GOBIN $GOPATH/bin
 set -xg GOPROXY "https://goproxy.cn"
 set -xg GOMODCACHE $XDG_CACHE_HOME/go/mod
-set -xg RUSTUP_HOME $XDG_DATA_HOME/rustup
-set -xg CARGO_HOME $XDG_DATA_HOME/cargo
+if test -d $RUSTUP_HOME
+    set -xg RUSTUP_HOME $XDG_DATA_HOME/rustup
+end
+
+if test -d $XDG_DATA_HOME/cargo
+    set -xg CARGO_HOME $XDG_DATA_HOME/cargo
+end
 set -xg PNPM_HOME $XDG_DATA_HOME/pnpm
 set -xg HOMEBREW_NO_AUTO_UPDATE true
 set -xg HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
@@ -29,7 +34,13 @@ fish_add_path $XDG_BIN_HOME
 fish_add_path $GOPATH
 fish_add_path $GOBIN
 fish_add_path $PNPM_HOME/bin
-fish_add_path $CARGO_HOME/bin
+
+if set -q CARGO_HOME
+    if test -d $CARGO_HOME/bin
+        fish_add_path $CARGO_HOME/bin
+    end
+end
+
 fish_add_path $DOTNET_ROOT
 fish_add_path $OPENCODE_PATH/bin
 

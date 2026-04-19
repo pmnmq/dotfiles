@@ -64,10 +64,13 @@ in {
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.chun.shell = pkgs.zsh;
+  # users.users.chun.shell = pkgs.zsh;
+  # programs.zsh.enable = true;
+
+  users.users.chun.shell = pkgs.fish;
+  programs.fish.enable = true;
 
   programs.hyprland.enable = true;
-  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
