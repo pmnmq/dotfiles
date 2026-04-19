@@ -1,3 +1,3 @@
-if test -f "/Users/pujic/.local/share/cargo/env.fish"
-    source "/Users/pujic/.local/share/cargo/env.fish"
+if test -f "$HOME/.local/share/cargo/env.fish"
+    source "$HOME/.local/share/cargo/env.fish"
 end

@@ -12,7 +12,7 @@ set -xg GOPATH $XDG_DATA_HOME/go
 set -xg GOBIN $GOPATH/bin
 set -xg GOPROXY "https://goproxy.cn"
 set -xg GOMODCACHE $XDG_CACHE_HOME/go/mod
-if test -d $RUSTUP_HOME
+if test -d $XDG_DATA_HOME/rustup
     set -xg RUSTUP_HOME $XDG_DATA_HOME/rustup
 end
 

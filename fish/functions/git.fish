@@ -1,4 +1,4 @@
 function git
-	set LANG en_US
-	/usr/bin/git $argv
+    set LANG en_US
+    command git $argv
 end
