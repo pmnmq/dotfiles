@@ -8,4 +8,5 @@
 [i18n "commit"]
 	encoding = utf-8
 [i18n]
-	logoutputencoding = utf-8
+	logOutputEncoding = utf-8
+	commitEncoding = utf-8

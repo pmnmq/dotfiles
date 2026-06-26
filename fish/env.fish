@@ -29,11 +29,17 @@ set -xg NUGET_PACKAGES $XDG_CACHE_HOME/NuGetPackages
 set -xg DOTNET_CLI_HOME $XDG_DATA_HOME/dotnet
 set -xg DOTNET_ROOT /usr/local/dotnet10
 set -xg OPENCODE_PATH /Users/pujic/.opencode
+set -xg JAVA_HOME /usr/local/jdk8/Contents/Home
 
 fish_add_path $XDG_BIN_HOME
 fish_add_path $GOPATH
 fish_add_path $GOBIN
 fish_add_path $PNPM_HOME/bin
+fish_add_path $PNPM_HOME
+
+if test -d $JAVA_HOME
+    fish_add_path $JAVA_HOME/bin
+end
 
 if set -q CARGO_HOME
     if test -d $CARGO_HOME/bin

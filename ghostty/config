@@ -1,5 +1,6 @@
 theme = Dracula
 font-family = "FiraCode Nerd Font Mono"
 font-size = 17
-command = fish -l
+command = /opt/homebrew/bin/fish
 keybind = ctrl+shift+p=new_split:right
+font-family = "PingFang SC"

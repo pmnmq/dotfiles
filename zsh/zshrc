@@ -57,3 +57,8 @@ fi
 if [[ -x "$HOMEBREW_BIN_PATH/zoxide" ]]; then
 	eval "$(zoxide init zsh)"
 fi
+source /Users/pujic/.config/op/plugins.sh
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/pujic/.local/bin:$PATH"
